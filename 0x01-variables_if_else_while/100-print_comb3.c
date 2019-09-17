@@ -7,7 +7,7 @@
 int main(void)
 {
 	int a, x, y;
-	
+
 	for (a = 0 ; a < 100 ; a++)
 	{
 		x = a % 10;
