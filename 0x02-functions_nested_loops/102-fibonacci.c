@@ -12,13 +12,14 @@ int main(void)
 	term2 = 1;
 	sum = 0;
 
-	for (count = 0; count <= 49; count++)
+	for (count = 0; count < 50; count++)
 	{
-		if (count != 49)
+		sum = term1 + term2;
+		term1 = term2;
+		term2 = sum;
+
+		if (count < 49)
 		{
-			sum = term1 + term2;
-			term1 = term2;
-			term2 = sum;
 			printf("%ld, ", sum);
 		}
 		else
