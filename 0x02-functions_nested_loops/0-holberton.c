@@ -1,6 +1,8 @@
-#include "holerton.h"
+#include "holberton.h"
+
 /**
  * main - prints Holberton
+ *
  * Return: Always 0
  */
 int main(void)
@@ -15,6 +17,5 @@ int main(void)
 	_putchar('o');
 	_putchar('n');
 	_putchar('\n');
-
 	return (0);
 }
