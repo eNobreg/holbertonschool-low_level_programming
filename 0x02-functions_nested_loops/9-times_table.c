@@ -16,10 +16,15 @@ void times_table(void)
 		{
 			result = c2 * count;
 
-			if (result / 10)
+			if (result > 9)
 			{
 				_putchar(result / 10 + '0');
 				_putchar(result % 10 + '0');
+			}
+			else if (count != 0)
+			{
+				_putchar(' ');
+				_putchar(result + '0');
 			}
 			else
 				_putchar(result + '0');
