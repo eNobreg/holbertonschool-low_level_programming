@@ -1,10 +1,14 @@
 #include "holberton.h"
-
+/**
+ * jack_bauer - lists minutes and hours in 24 hours
+ * Return: None
+ */
 void jack_bauer(void)
 {
 
 	int hours, minutes;
-	for ( hours = 0 ; hours <= 23 ; hours++)
+
+	for (hours = 0 ; hours <= 23 ; hours++)
 	{
 		for (minutes = 0 ; minutes <= 59 ; minutes++)
 		{
@@ -16,6 +20,5 @@ void jack_bauer(void)
 			_putchar('\n');
 		}
 	}
-
 }
 
