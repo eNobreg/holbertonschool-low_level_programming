@@ -1,33 +1,35 @@
 #include <stdio.h>
 /**
- * main - print 00 to 99 with commas and spaces
+ * main - print 00 to 99
  * Return: Always 0
+ *
  */
-
 int main(void)
 {
-	int a, x, y, h;
+	int a, b, c, x, y, z, h;
 
-	for (a = 0 ; a < 1000 ; a++)
+	for (a = 0 ; a < 10 ; a++)
 	{
-		x = a % 10;
-		y = a / 10;
-		h = y / 10;
-
-		if (y < x &&  h < y)
+		for (b = a + 1 ; b < 10 ; b++)
 		{
-			putchar(h + '0');
-			putchar(y + '0');
-			putchar(x + '0');
-
-			if (a < 789)
+			for (c = b + 1 ; c < 10 ; c++)
 			{
-				putchar(',');
-				putchar(' ');
+				putchar(a + '0');
+				putchar(b + '0');
+				putchar(c + '0');
+				if (a < 7)
+				{
+					putchar(',');
+					putchar(' ');
+				}
 			}
 		}
 	}
 	putchar('\n');
-
 	return (0);
 }
+
+
+
+
+
