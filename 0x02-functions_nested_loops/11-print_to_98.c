@@ -1,5 +1,10 @@
 #include "holberton.h"
 #include <stdio.h>
+/**
+ * print_to_98 - Exactly what the function says, prints to 98 from any number
+ * @n: value passed into the function
+ * Return: Never
+ */
 
 void print_to_98(int n)
 {
