@@ -1,0 +1,48 @@
+#include "holberton.h"
+/**
+ * times_table - prints the times tables
+ * Return: Never
+ */
+void print_times_table(int n)
+{
+	int count, c2, result;
+	c2 = 0;
+	while (c2 <= n)
+	{
+		count = 0;
+		while (count <= n)
+		{
+			result = c2 * count;
+
+			if (result >= 10)
+			{
+				_putchar(result / 10 + '0');
+				_putchar(result % 10 + '0');
+			}
+			else if (result >= 100)
+			{
+				_putchar((result/ 100) + '0');
+				_putchar(result / 10 + '0');
+				_putchar(result % 10 + '0');
+
+			}
+			else if (count != 0)
+			{
+				_putchar(' ');
+				_putchar(result + '0');
+			}
+			else
+				_putchar(result + '0');
+
+			if (count != n)
+			{
+				_putchar(',');
+				_putchar(' ');
+			}
+
+			count++;
+		}
+	c2++;
+	_putchar('\n');
+	}
+}
