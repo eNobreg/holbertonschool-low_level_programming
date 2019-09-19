@@ -14,6 +14,8 @@ void print_line(int n)
 			_putchar(95);
 		_putchar('\n');
 	}
-	else
+	else if (n == 0)
 		_putchar('\n');
+	else
+		_putchar('\n')
 }
