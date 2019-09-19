@@ -11,14 +11,16 @@ int main(void)
 	for (counter = 1; counter <= 100; counter++)
 	{
 		if ((counter % 5 == 0) && (counter % 3 == 0))
-			printf("FizzBuzz ");
+			printf("FizzBuzz");
 
 		else if (counter % 3 == 0)
-			printf("Fizz ");
+			printf("Fizz");
 		else if (counter % 5 == 0)
-			printf("Buzz ");
+			printf("Buzz");
 		else
 			printf("%d ", counter);
+		if (counter < 100)
+			printf(" ");
 	}
 	printf("\n");
 	return (0);
