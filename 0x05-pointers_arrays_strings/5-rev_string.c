@@ -5,14 +5,14 @@
  * Return: Never
  */
 
-void rev_string (char *s)
+void rev_string(char *s)
 {
 	int i, j;
-	char temp [1000];
+	char temp[1000];
 
 	i = 0;
 
-	while(*(s + i)!= 0)
+	while (*(s + i) != 0)
 	{
 		temp[i] = *(s + i);
 		i++;
@@ -20,7 +20,7 @@ void rev_string (char *s)
 	j = i - 1;
 	i = 0;
 
-	while(j >= 0)
+	while (j >= 0)
 	{
 		*(s + j) = temp[i];
 		j--;
