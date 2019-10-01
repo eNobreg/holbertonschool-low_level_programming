@@ -1,5 +1,9 @@
 #include "holberton.h"
-
+/**
+ * rev_string - reverses a string
+ * @s: Value to pass inside
+ * Return: Never
+ */
 
 void rev_string (char *s)
 {
@@ -22,6 +26,5 @@ void rev_string (char *s)
 		j--;
 		i++;
 	}
-	putchar('\n')
 }
 
