@@ -7,7 +7,7 @@
 
 void rev_string (char *s)
 {
-	int i, j, length;
+	int i, j;
 	char temp [1000];
 
 	i = 0;
