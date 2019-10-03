@@ -1,8 +1,9 @@
 #include "holberton.h"
 /**
- * *_strcpy - Prints a string
+ * _strncpy - Prints a string
  * @dest: Destination
  * @src: Source
+ * @n: Bytes to parse
  * Return: Always dest
  */
 char *_strncpy(char *dest, char *src, int n)
@@ -13,8 +14,8 @@ char *_strncpy(char *dest, char *src, int n)
 	{
 		dest[i] = src[i];
 	}
-	for(; i < n ; i++)
-	
+	for (; i < n ; i++)
+
 	dest[i] = '\0';
 	return (dest);
 }
