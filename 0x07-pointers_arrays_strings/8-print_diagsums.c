@@ -16,12 +16,14 @@ void print_diagsums(int *a, int size)
 	for (i = 0; i < size; i++)
 	{
 		sum1 += a[(size + 1) * i];
+		printf ("\n One: %d size +1: %d\n", sum1, ((size + 1) * i));
 	}
 	for (j = 0 ; j < size; j++)
 	{
 		sum2 += a[(size - 1) * (j + 1)];
+		printf ("\n Two: %d Size +1: %d\n", sum2, ((size - 1) * (j + 1)));
 	}
 
 
-	printf("%d, %d\n", sum1, sum2);
+	printf("\n%d, %d\n", sum1, sum2);
 }

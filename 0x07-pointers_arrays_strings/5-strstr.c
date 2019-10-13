@@ -7,10 +7,13 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	while (*haystack)
+	char *temp1 = haystack;
+	char *find = needle; 
+
+	while (*temp1)
 	{
-		char *temp1 = haystack;
-		char *find = needle;
+		//char *temp1 = haystack;
+		//char *find = needle;
 
 		while (*haystack && *find && *haystack == *find)
 		{
@@ -18,8 +21,10 @@ char *_strstr(char *haystack, char *needle)
 			find++;
 		}
 		if (!*find)
-			return (temp1);
-		haystack = temp1 + 1;
+		{
+			return (temp1 + 1);
+		}
+		temp1 = haystack++;
 	}
 	return ('\0');
 }
