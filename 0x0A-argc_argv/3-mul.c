@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 	int i = 0;
 	int result = 0;
 
-	if (argc < 2 && argc >= 0)
+	if ((argc < 2 && argc >= 0) || argc > 3)
 	{
 		printf("Error\n");
 		return (0);
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	{
 		n = atoi(argv[1]);
 		i = atoi(argv[2]);
-		result = n*i;
+		result = n * i;
 		printf("%d\n", result);
 		return (0);
 	}
