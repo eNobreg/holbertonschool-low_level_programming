@@ -3,17 +3,16 @@
 #include <ctype.h>
 #include "holberton.h"
 /**
- *  * main - main function
- *   * @argc: Count of arguments
- *    * @argv: Value of arguments
- *     * Return: never
- *      */
-
+ * main - main function
+ * @argc: Count of arguments
+ * @argv: Value of arguments
+ * Return: never
+ */
 int main(int argc, char *argv[])
 {
 	int i, j;
 	int result = 0;
-	
+
 	for (i = 1; argv[i] != 0; i++)
 	{
 		for (j = 0; argv[i][j] != '\0'; j++)
