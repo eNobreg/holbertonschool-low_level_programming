@@ -10,14 +10,20 @@
 
 int main(int argc, char *argv[])
 {
-	int n = atoi(argv[1]);
-	int i = atoi(argv[2]);
-	int result = i * n;
+	int n = 0;
+	int i = 0;
+	int result = 0;
 
-	if (argc == 3)
+	if (argc <= 2 && argc >= 0)
 	{
-		printf("%d\n", result);
+		printf("Error\n");
+		return (1);
 	}
 	else
-		return (1);
+	{
+		n = atoi(argv[1]);
+		i = atoi(argv[2]);
+		result = n*i;
+		printf("%d\n", result);
+	}
 }
