@@ -8,7 +8,7 @@
  * @argv: Value of arguments
  * Return: never
  */
-int main(int argc, char *argv[])
+int main(int argc __attribute__((unused)), char *argv[])
 {
 	int i, j;
 	int result = 0;
@@ -18,18 +18,16 @@ int main(int argc, char *argv[])
 		for (j = 0; argv[i][j] != '\0'; j++)
 		{
 
-			if (isdigit(argv[i][j]))
-				result += atoi(argv[i]);
-			else
+			if (!isdigit(argv[i][j]))
 			{
 				printf("Error\n");
 				return (1);
 			}
 		}
-	}
-	if (i == argc)
-		printf("%d", result);
 
+		result += (atoi(argv[i]));
+	}
+	printf("%d", result);
 	printf("\n");
 	return (0);
 }
