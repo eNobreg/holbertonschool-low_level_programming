@@ -2,11 +2,11 @@
 #include "holberton.h"
 #include <stdlib.h>
 /**
- *  * main - Main funciton
- *   * @argc: Amount of arguments
- *    * @argv: Value is  arguments
- *     * Return: 1 if it is an error
- *      */
+ * main - Main funciton
+ * @argc: Amount of arguments
+ * @argv: Value is  arguments
+ * Return: 1 if it is an error
+ */
 
 int main(int argc, char *argv[])
 {
@@ -25,5 +25,6 @@ int main(int argc, char *argv[])
 		i = atoi(argv[2]);
 		result = n*i;
 		printf("%d\n", result);
+		return (0);
 	}
 }
