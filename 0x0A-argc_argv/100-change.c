@@ -11,19 +11,20 @@ int main(int argc, char *argv[])
 {
 	int coins[5] = {25, 10, 5, 2, 1};
 	int count = 0;
-	int cents;
+	int cents, i;
 
 	if (argc != 2)
 	{
 		printf("Error\n");
-		return (0);
+		return (1);
 	}
 
 	if (atoi(argv[1]) < 0)
 		printf("0\n");
 
 	cents = atoi(argv[1]);
-	for (int i = 0; i < 5;)
+
+	for (i = 0; i < 5;)
 	{
 		if (cents >= coins[i])
 		{
@@ -35,5 +36,4 @@ int main(int argc, char *argv[])
 	}
 	printf("%d\n", count);
 	return (0);
-
 }
