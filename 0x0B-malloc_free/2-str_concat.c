@@ -41,5 +41,6 @@ char *str_concat(char *s1, char *s2)
 		}
 		k++;
 	}
+	temp[k] = '\0';
 	return (temp);
 }
