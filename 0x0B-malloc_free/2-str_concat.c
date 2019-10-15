@@ -15,6 +15,7 @@ char *str_concat(char *s1, char *s2)
 	i = 0;
 	j = 0;
 	k = 0;
+
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
@@ -27,6 +28,8 @@ char *str_concat(char *s1, char *s2)
 
 	size = i + j + 1;
 	temp = malloc(size * sizeof(char));
+	if (temp == NULL)
+		return(NULL);
 
 	j = 0;
 
