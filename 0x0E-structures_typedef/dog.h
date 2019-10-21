@@ -16,6 +16,6 @@ struct dog
 };
 
 void init_dog(struct dog *d, char *name, float age, char *owner);
-#include <unistd.h>
+void print_dog(struct dog *d);
 int _putchar(char c);
 #endif
