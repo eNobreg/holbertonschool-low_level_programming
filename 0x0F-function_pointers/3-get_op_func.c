@@ -21,7 +21,7 @@ op_t ops[] = {
 
 	while (i < 5)
 	{
-		if (*ops[i].op == *s)
+		if (*ops[i].op == *s && !(*(s + 1)))
 			return (ops[i].f);
 		i++;
 	}
