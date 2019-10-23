@@ -15,17 +15,17 @@ int main(int argc, char *argv[])
 
 	if (argc > 4)
 	{
-		printf("Error1");
+		printf("Error");
 		exit(98);
 	}
 	if (func == NULL)
 	{
-		printf("Error2");
+		printf("Error");
 		exit(99);
 	}
 	if (atoi(argv[1]) == 0 || atoi(argv[3]) == 0)
 	{
-		printf("Error3");
+		printf("Error");
 		exit(100);
 	}
 
