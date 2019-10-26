@@ -19,34 +19,29 @@ void print_all(const char * const format, ...)
 		{
 			case 'c':
 				printf("%c", va_arg(args, int));
-				count2++;
 				break;
 			case 'i':
 				printf("%d", va_arg(args, int));
-				count2++;
 				break;
 			case 'f':
 				printf("%f", va_arg(args, double));
-				count2++;
 				break;
 			case 's':
 				value = va_arg(args, char *);
 				if (!(value))
 				{
 					printf("(nil)");
-					count2++;
 				}
 				else
 				{
 					printf("%s", value);
-					count2++;
 				}
 				break;
 			}
+			count2++;
 			if (format[count2] != '\0')
 				printf(", ");
 		}
 		printf("\n");
 		va_end(args);
 }
-
