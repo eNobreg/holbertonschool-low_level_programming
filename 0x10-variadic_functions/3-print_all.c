@@ -18,33 +18,36 @@ void print_all(const char * const format, ...)
 			case 'c':
 				printf("%c", va_arg(args, int));
 				count2++;
-				continue;
+				break;
 			case 'i':
 				printf("%d", va_arg(args, int));
 				count2++;
-				continue;
+				break;
 			case 'f':
 				printf("%f", va_arg(args, double));
 				count2++;
-				continue;
+				break;
 			case 's':
 				value = va_arg(args, char *);
 				if (!(value))
 				{
 					printf("(nil)");
 					count2++;
-					continue;
+					break;
 				}
 				else
 				{
 					printf("%s", value);
 					count2++;
-					continue;			
+					break;			
 				}
 				default:
 					count2++;
-					continue;
+					break;
 			}
+			if (format[count2] != '\0')
+				printf(", ");
 		}
+		printf("\n");
 }
 
