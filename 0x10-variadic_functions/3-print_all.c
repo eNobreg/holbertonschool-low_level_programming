@@ -1,20 +1,22 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "variadic_functions.h"
-
+/**
+ * print_all - prints all entries
+ * @format: Gets the format
+ * Return: never
+ */
 void print_all(const char * const format, ...)
 {
 	int count2 = 0;
-	char * value;
+	char *value;
 	va_list args;
 
 	va_start(args, format);
-
 	while (format[count2] != '\0')
 	{
-		switch(format[count2]) 
+		switch (format[count2])
 		{
-
 			case 'c':
 				printf("%c", va_arg(args, int));
 				count2++;
@@ -33,21 +35,18 @@ void print_all(const char * const format, ...)
 				{
 					printf("(nil)");
 					count2++;
-					break;
 				}
 				else
 				{
 					printf("%s", value);
 					count2++;
-					break;			
 				}
-				default:
-					count2++;
-					break;
+				break;
 			}
 			if (format[count2] != '\0')
 				printf(", ");
 		}
 		printf("\n");
+		va_end(args);
 }
 
