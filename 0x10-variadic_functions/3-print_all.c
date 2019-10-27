@@ -31,11 +31,9 @@ void print_all(const char * const format, ...)
 				if (!(value))
 				{
 					printf("(nil)");
+					break;
 				}
-				else
-				{
-					printf("%s", value);
-				}
+				printf("%s", value);
 				break;
 			}
 			count2++;
