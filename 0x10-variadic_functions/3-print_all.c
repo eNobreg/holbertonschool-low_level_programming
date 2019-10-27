@@ -22,7 +22,6 @@ int helper(char s)
 		default:
 			return (0);
 	}
-
 }
 
 /**
@@ -32,13 +31,12 @@ int helper(char s)
  */
 void print_all(const char * const format, ...)
 {
-	int count2 = 0;
-	int help;
+	int count2 = 0, val = 1;
 	char *value;
 	va_list args;
 
 	va_start(args, format);
-	while (format[count2] && format)
+	while (format && format[count2])
 	{
 		switch (format[count2])
 		{
@@ -59,13 +57,18 @@ void print_all(const char * const format, ...)
 					break;
 				}
 				printf("%s", value);
+		}
+		while (format[count2 + val] && (helper(format[count2]) == 1))
+		{
+			if (helper(format[count2 + val]))
+			{
+				printf(", ");
 				break;
 			}
-			count2++;
-			help = helper(format[count2]);
-			if (format[count2] != '\0' && help == 1)
-				printf(", ");
+			val++;
 		}
-		printf("\n");
-		va_end(args);
+		count2++;
+	}
+	printf("\n");
+	va_end(args);
 }
