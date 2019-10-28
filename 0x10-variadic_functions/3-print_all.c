@@ -13,9 +13,9 @@ int helper(char s)
 	{
 		case 'c':
 			return (1);
-		case 'f':
-			return (1);
 		case 'i':
+			return (1);
+		case 'f':
 			return (1);
 		case 's':
 			return (1);
@@ -23,7 +23,6 @@ int helper(char s)
 			return (0);
 	}
 }
-
 /**
  * print_all - prints all entries
  * @format: Gets the format
@@ -31,7 +30,7 @@ int helper(char s)
  */
 void print_all(const char * const format, ...)
 {
-	int count2 = 0, val = 1;
+	int count2 = 0, val;
 	char *value;
 	va_list args;
 
@@ -51,24 +50,24 @@ void print_all(const char * const format, ...)
 				break;
 			case 's':
 				value = va_arg(args, char *);
-				if (!(value))
+				if (value)
 				{
-					printf("(nil)");
+					printf("%s", value);
 					break;
 				}
-				printf("%s", value);
+				printf("(nil)");
 		}
-		while (format[count2 + val] && (helper(format[count2]) == 1))
+		val = 1;
+		while (helper(format[count2]) && format[count2 + val++])
 		{
 			if (helper(format[count2 + val]))
 			{
 				printf(", ");
 				break;
 			}
-			val++;
 		}
 		count2++;
 	}
-	printf("\n");
 	va_end(args);
+	printf("\n");
 }
