@@ -1,28 +1,7 @@
-#include <stdio.h>
-#include <stdarg.h>
 #include "variadic_functions.h"
-/**
- * helper - a switch case
- * @s: char to check case
- * Return: 1 or 0
- */
 
-int helper(char s)
-{
-	switch (s)
-	{
-		case 'c':
-			return (1);
-		case 'i':
-			return (1);
-		case 'f':
-			return (1);
-		case 's':
-			return (1);
-		default:
-			return (0);
-	}
-}
+int helper(char s);
+
 /**
  * print_all - prints all entries
  * @format: Gets the format
@@ -30,9 +9,9 @@ int helper(char s)
  */
 void print_all(const char * const format, ...)
 {
-	int count2 = 0, val;
-	char *value;
 	va_list args;
+	int val, count2 = 0;
+	char *value;
 
 	va_start(args, format);
 	while (format && format[count2])
@@ -58,14 +37,40 @@ void print_all(const char * const format, ...)
 				printf("(nil)");
 		}
 		val = 1;
-		while (helper(format[count2]) && format[count2 + val++])
+		while (helper(format[count2]) && format[count2 + val])
+		{
 			if (helper(format[count2 + val]))
 			{
 				printf(", ");
 				break;
 			}
+			val++;
+		}
 		count2++;
 	}
-	printf("\n");
 	va_end(args);
+	printf("\n");
+}
+
+
+/**
+ * helper - a switch case
+ * @s: char to check case
+ * Return: 1 or 0
+ */
+int helper(char s)
+{
+	switch (s)
+	{
+		case 'c':
+			return (1);
+		case 'i':
+			return (1);
+		case 'f':
+			return (1);
+		case 's':
+			return (1);
+		default:
+			return (0);
+	}
 }
