@@ -59,15 +59,13 @@ void print_all(const char * const format, ...)
 		}
 		val = 1;
 		while (helper(format[count2]) && format[count2 + val++])
-		{
 			if (helper(format[count2 + val]))
 			{
 				printf(", ");
 				break;
 			}
-		}
 		count2++;
 	}
-	va_end(args);
 	printf("\n");
+	va_end(args);
 }
