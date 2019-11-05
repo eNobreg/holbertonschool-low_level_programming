@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
- * free_listint - Frees a singly linked list
+ * free_listint2 - Frees a singly linked list
  * @head: List to free
  * Return: Nothing
  */
