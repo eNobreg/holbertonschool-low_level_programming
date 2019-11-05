@@ -14,19 +14,19 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	listint_t *current;
 	unsigned int cnt = 0;
 
-	new->n = n;
-	new->next = NULL;
-
-	if (*head == NULL || new == NULL)
+	if (head == NULL || new == NULL)
 	{
-		free(new);
 		return (NULL);
 	}
 
+	new->n = n;
+	new->next = NULL;
+
 	if (idx == 0)
 	{
-		free(new);
-		return (add_nodeint(head, n));
+		new->next = *head;
+		*head = new;
+		return (new);
 	}
 	current = *head;
 
@@ -44,26 +44,4 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 
 	free(new);
 	return (NULL);
-}
-/**
- * add_nodeint - Adds a node at the head
- * @head: Current node
- * @n: data for node
- * Return: New
- */
-listint_t *add_nodeint(listint_t **head, const int n)
-{
-	listint_t *new = malloc(sizeof(listint_t));
-
-	if (new == NULL)
-		return (NULL);
-
-	new->n = n;
-	new->next = *head;
-	*head = new;
-	if (*head == NULL)
-	{
-		return (NULL);
-	}
-	return (new);
 }
