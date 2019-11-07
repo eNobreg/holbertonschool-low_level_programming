@@ -24,7 +24,6 @@ unsigned int binary_to_uint(const char *b)
 	{
 		if (b[length] != '1' && b[length] != '0')
 		{
-			printf("Inside Error: ");
 			return (0);
 		}
 
