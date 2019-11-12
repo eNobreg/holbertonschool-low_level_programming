@@ -1,24 +1,26 @@
 #include "holberton.h"
 
+void helper_err(int f, int c, char *str2);
+/**
+ * main - main function
+ * @argc: Amount of args
+ * @argv: Value of args
+ * Return: sometimes
+ */
 int main(int argc, char **argv)
 {
 	char buffer[1024];
 	int file1, file2, written, closed;
 	ssize_t count;
 
-	if (argc > 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
+	helper_err(9, argc, argv[1]);
+
 	file1 = open(argv[1], O_RDONLY);
-	if (file1 == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
-	file2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 664);
-	if (file2 == -1 || file1 == -1)
+	helper_err(6, file1, argv[1]);
+
+	file2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+
+	if (file2 == -1)
 	{
 		closed = close(file1);
 		if (closed == -1)
@@ -26,21 +28,45 @@ int main(int argc, char **argv)
 			dprintf(STDERR_FILENO, "Error: Can't close fd %d", file1);
 			exit(100);
 		}
-		exit(98);		
-	}	
+		exit(99);
+	}
 	while ((count = read(file1, buffer, sizeof(buffer))) != 0)
 	{
-		if (count == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			exit(98);
-		}
+		helper_err(4, count, argv[1]);
+
 		written = write(file2, buffer, count);
-		if (written == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			exit(99);
-		}
+		helper_err(7, written, argv[2]);
 	}
 	return (0);
+}
+/**
+ * helper_err - jelper
+ * @f: Check
+ * @c: Value
+ * @str2: String to use somtimes
+ * Return: Never
+ */
+void helper_err(int f, int c, char *str2)
+{
+
+	if (f == 4 && c == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", str2);
+		exit(98);
+	}
+	if (f == 7 && c == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", str2);
+		exit(99);
+	}
+	if (f == 6 && c == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", str2);
+		exit(98);
+	}
+	if (f == 9 && c > 3)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
 }
