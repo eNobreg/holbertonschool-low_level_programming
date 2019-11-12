@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	file2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 384 | | S_IROTH);
+	file2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 664);
 	if (file2 == -1 || file1 == -1)
 	{
 		closed = close(file1);
