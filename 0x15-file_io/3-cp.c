@@ -69,7 +69,7 @@ void helper_err(int f, int c, char *str2, int fd)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", str2);
 		exit(98);
 	}
-	if (f == 9 && c > 3)
+	if (f == 9 && c != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
