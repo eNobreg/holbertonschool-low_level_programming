@@ -18,14 +18,14 @@ int main(int argc, char **argv)
 	file1 = open(argv[1], O_RDONLY);
 	helper_err(6, file1, argv[1], 0);
 
-	file2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	file2 = open(argv[2], (O_WRONLY | O_TRUNC | O_CREAT), 00664);
 
 	if (file2 == -1)
 	{
 		closed = close(file1);
 		helper_err(10, closed, argv[1], file1);
 
-		exit(99);
+		exit(98);
 	}
 	while ((count = read(file1, buffer, sizeof(buffer))) != 0)
 	{
@@ -37,14 +37,15 @@ int main(int argc, char **argv)
 
 	closed = close(file1);
 	helper_err(10, closed, argv[1], file1);
+	
 	closed = close(file2);
 	helper_err(10, closed, argv[1], file2);
 
 	return (0);
 }
 /**
- * helper_err - jelper
- * @f: Check
+ * helper_err - helper
+ * @f: Passes in a 4 for read, a 7 for write, a 10 for close, a 6 for file1, 9 if argc is too big
  * @c: Value
  * @str2: String to use somtimes
  * @fd: File descriptor
