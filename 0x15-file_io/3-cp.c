@@ -24,8 +24,8 @@ int main(int argc, char **argv)
 	{
 		closed = close(file1);
 		helper_err(10, closed, argv[1], file1);
-
-		exit(98);
+		dprintf("Error: Can't write to %s\n", argv[2]);
+		exit(99);
 	}
 	while ((count = read(file1, buffer, sizeof(buffer))) != 0)
 	{
