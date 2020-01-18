@@ -1,3 +1,6 @@
+#ifndef HASH_TABLES
+#define HASH_TABLES
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -36,3 +39,4 @@ unsigned long int hash_djb2(const unsigned char *str);
 hash_table_t *hash_table_create(unsigned long int size);
 unsigned long int key_index(const unsigned char *key, unsigned long int size);
 
+#endif
