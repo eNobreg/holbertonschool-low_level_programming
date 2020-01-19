@@ -25,7 +25,7 @@ void hash_table_print(const hash_table_t *ht)
 					new = new->next;
 				}
 				j = i + 1;
-				while(j < ht->size)
+				while (j < ht->size)
 				{
 					if (ht->array[j])
 					{
