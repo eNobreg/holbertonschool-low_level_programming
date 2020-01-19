@@ -20,6 +20,22 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	temp = new_slot;
 	index = key_index((const unsigned char *)key, ht->size);
 
+	if (ht->array[index])
+	{
+		new_slot = ht->array[index];
+		while (new_slot)
+		{
+			if (strcmp(new_slot->key, key) == 0)
+			{
+				free(new_slot->value);
+				new_slot->value = strdup(value);
+				free(temp);
+				return (1);
+			}
+			new_slot = new_slot->next;
+		}
+	}
+
 	new_slot = pair(key, value);
 	if (new_slot == NULL)
 	{
@@ -45,7 +61,7 @@ hash_node_t *pair(const char *key, const char *value)
 		return (NULL);
 
 	new->key = strdup(key);
-	if (new->key == NULL) 
+	if (new->key == NULL)
 	{
 		free(new);
 		return (NULL);
@@ -55,7 +71,7 @@ hash_node_t *pair(const char *key, const char *value)
 	{
 		free(new->key);
 		free(new);
-		return(NULL);
+		return (NULL);
 	}
 	new->next = NULL;
 	return (new);
