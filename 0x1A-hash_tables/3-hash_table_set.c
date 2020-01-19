@@ -45,7 +45,7 @@ hash_node_t *pair(const char *key, const char *value)
 	new->key = strdup(key);
 	new->value = strdup(value);
 	new->next = NULL;
-	if (new->key == NULL || new->value == NULL)
+	if (new->key == NULL)
 		return (NULL);
 	return (new);
 }
