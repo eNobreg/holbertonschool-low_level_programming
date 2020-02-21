@@ -4,9 +4,9 @@ SRC=main.c holberton.c
 OBJ=$(SRC:.c=.o)
 CFLAGS=-Wall -Werror -Wextra -pedantic
 
-.PHONY: all cleann oclean fclean re
+.PHONY: all clean oclean fclean re
 
-all: $(OBJ) m.h
+all: m.h $(OBJ) 
 	$(CC) $(OBJ) -o $(NAME)
 
 clean: 
