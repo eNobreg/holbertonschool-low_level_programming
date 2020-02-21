@@ -1,7 +1,7 @@
 CC=gcc
-SRC=main.c holberton.c
-OBJ=$(wildcard *.o)
 NAME=holberton
+SRC = $(wildcard *.c) 
+OBJ = $(patsubst %.c, %.o, $(SRC))
 
-$(NAME): $(SRC) 
-	$(CC) $(SRC) $(OBJ) -o $(NAME)
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
