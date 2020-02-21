@@ -4,7 +4,10 @@ SRC=main.c holberton.c
 OBJ=$(SRC:.c=.o)
 RM=rm -f
 
-.PHONY: all
+.PHONY: re
+re: $(SRC)
+	$(CC) $(SRC) -o $(NAME)
+
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 clean: $(NAME)
